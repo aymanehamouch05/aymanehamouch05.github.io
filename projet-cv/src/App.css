@@ -1,6 +1,4 @@
-/* ========================================
-   VARIABLES - LIGHT / DARK MODE
-======================================== */
+/* === VARIABLES - LIGHT / DARK MODE === */
 :root {
   --bg-color: #f4f4f9;
   --text-color: #040405;
@@ -29,9 +27,7 @@
   --label-color: #c9d6e3;
 }
 
-/* ========================================
-   CONFIGURATION GÉNÉRALE
-======================================== */
+/* ==  CONFIGURATION GÉNÉRALE  POUR LE PROJET == */
 * {
   margin: 0;
   padding: 0;
@@ -57,9 +53,7 @@ html {
   flex-direction: column;
 }
 
-/* ========================================
-   HEADER
-======================================== */
+/* == HEADER == */
 @keyframes shrink {
   from {
     padding: 20px 5%;
@@ -106,9 +100,7 @@ html {
   border: 2px solid #e89528;
 }
 
-/* ========================================
-   HEADER - CÔTÉ GAUCHE
-======================================== */
+/* == HEADER - CÔTÉ GAUCHE == */
 .left-side {
   display: flex;
   align-items: center;
@@ -128,9 +120,7 @@ html {
   font-size: 1rem;
 }
 
-/* ========================================
-   NAVBAR
-======================================== */
+/* == NAVBAR == */
 .navbar {
   display: flex;
   align-items: center;
@@ -172,9 +162,7 @@ html {
   color: #e89528;
 }
 
-/* ========================================
-   BOUTON DARK MODE
-======================================== */
+/* == BOUTON DARK MODE == */
 .theme-toggle {
   background: none;
   border: 2px solid #e89528;
@@ -195,9 +183,7 @@ html {
   background-color: rgba(232, 149, 40, 0.15);
 }
 
-/* ========================================
-   HEADER - CÔTÉ DROIT
-======================================== */
+/* ==  HEADER - CÔTÉ DROIT == */
 .right-side {
   display: flex;
   align-items: center;
@@ -223,9 +209,7 @@ html {
   transform: translateY(-3px);
 }
 
-/* ========================================
-   CONTENU PRINCIPAL
-======================================== */
+/* == CONTENU PRINCIPAL == */
 .content {
   display: block;
   flex-grow: 1;
@@ -237,9 +221,7 @@ section {
   scroll-margin-top: 110px;
 }
 
-/* ========================================
-   TITRES DE SECTION
-======================================== */
+/* == TITRES DE SECTION ==*/
 .section-title {
   font-size: 2rem;
   color: var(--title-color);
@@ -260,9 +242,7 @@ section {
   letter-spacing: 5px;
 }
 
-/* ========================================
-   CONTAINER
-======================================== */
+/* == CONTAINER == */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -271,9 +251,7 @@ section {
   text-align: center;
 }
 
-/* ========================================
-   SECTION À PROPOS
-======================================== */
+/* ==  SECTION À PROPOS ==*/
 .biographie {
   font-size: 18px;
   text-align: justify;
@@ -284,9 +262,7 @@ section {
   transition: color 0.3s ease;
 }
 
-/* ========================================
-   SECTION COMPÉTENCES
-======================================== */
+/* == SECTION COMPÉTENCES ==*/
 .competences-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -383,9 +359,7 @@ section {
   border: 1px solid #9fbed3;
 }
 
-/* ========================================
-   SECTION FORMATION
-======================================== */
+/* == SECTION FORMATION == */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -465,9 +439,7 @@ section {
   line-height: 1.5;
 }
 
-/* ========================================
-   SECTION PROJETS
-======================================== */
+/* ==  SECTION PROJETS == */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -561,9 +533,7 @@ section {
   box-shadow: 0 0 15px rgba(212, 163, 115, 0.5);
 }
 
-/* ========================================
-   SECTION CONTACT
-======================================== */
+/* == SECTION CONTACT == */
 .contact-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -664,12 +634,11 @@ section {
   outline: none;
 }
 
-/* ========================================
-   FOOTER
-======================================== */
+/* == FOOTER == */
 .footer {
+  
   width: 100%;
-  height: 10rem;
+  height: 6rem;
   padding: 1rem 0;
   background-color: var(--footer-bg);
   color: var(--footer-text);
@@ -679,13 +648,26 @@ section {
 
 .footer-name {
   font-weight: 800;
-  color: #180b58;
+  color: #e89528;
   letter-spacing: 0.5px;
 }
+.footer-content{
+margin: 1rem;
+font-weight: 600;
+}
 
-/* ========================================
-   RESPONSIVE - TABLETTE (max 1024px)
-======================================== */
+/* == ANIMATION SCROLL - APPARITION DES SECTIONS == */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* == RESPONSIVE - TABLETTE (max 1024px) == */
 @media (max-width: 1024px) {
 
   #header {
@@ -711,9 +693,7 @@ section {
   }
 }
 
-/* ========================================
-   RESPONSIVE - MOBILE (max 768px)
-======================================== */
+/* == RESPONSIVE - MOBILE (max 768px)== */
 @media (max-width: 768px) {
 
   #header {
@@ -806,9 +786,7 @@ section {
   }
 }
 
-/* ========================================
-   RESPONSIVE - PETIT MOBILE (max 480px)
-======================================== */
+/* == RESPONSIVE - PETIT MOBILE (max 480px)== */
 @media (max-width: 480px) {
 
   .profile-container img {

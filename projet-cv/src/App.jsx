@@ -4,8 +4,7 @@ import './App.css' ;
 import ProjectsSection from './components/ProjectsSection';
 import ContactForm from './ContactForm';
 
-function App() {
-    /* pour le boutton darKMode */
+  function App() {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
@@ -16,14 +15,12 @@ function App() {
     }
    }, [darkMode]);
 
-      useEffect(() => {
+    useEffect(() => {
     // --- 1. INITIALISATION DES SECTIONS ---
-    // On cache les détails des formations au départ
     $('.timeline-content p, .timeline-content h4').hide();
     $('.timeline-item').css('cursor', 'pointer');
 
     // --- 2. ANIMATION DES BARRES DE PROGRESSION ---
-    // Un petit délai pour s'assurer que le rendu React est stable
     const timeout = setTimeout(() => {
       $('.progress').each(function() {
         const level = $(this).attr('data-level');
@@ -36,12 +33,8 @@ function App() {
     // --- 3. GESTION DE L'ACCORDÉON (FORMATION) ---
     const handleTimelineClick = function() {
       const currentContent = $(this).find('p, h4');
-
-      // Fermer les autres et retirer leur classe active
       $('.timeline-content p, .timeline-content h4').not(currentContent).slideUp(500);
       $('.timeline-cercle').not($(this).find('.timeline-cercle')).removeClass('active-dot');
-
-      // Ouvrir/Fermer l'élément actuel
       currentContent.slideToggle(500);
       $(this).find('.timeline-cercle').toggleClass('active-dot');
     };
@@ -54,6 +47,26 @@ function App() {
       $('.timeline-item').off('click', handleTimelineClick);
     };
   }, []);
+
+  // --- 5. ANIMATION SCROLL ---
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
 
   return (
     <>
@@ -104,7 +117,7 @@ function App() {
       </header>
 
       <main className="content">
-       <section id="about" className="container">
+       <section id="about" className="container reveal" >
             <h2 className="section-title">À propos de moi</h2>
              <p className="biographie"> 
              Étudiant en deuxième année de Sciences Informatique (S4) 
@@ -121,7 +134,7 @@ function App() {
              </p>
         </section>
       
-        <section id="competences" className="container">
+        <section id="competences" className="container reveal">
             <h2 className="section-title">Compétences</h2>
             <div className="competences-group">
           <div className="competences-grid">
@@ -214,7 +227,7 @@ function App() {
         </section>
         
         
-        <section id="formation" class="container">
+        <section id="formation" class="container reveal">
           <h2 className="section-title">Formation</h2>
         <div className="timeline">
         
@@ -238,13 +251,12 @@ function App() {
     </div>
         </section>
        
-        <ProjectsSection />
-     
-        <ContactForm/>
+       <div className="reveal"><ProjectsSection /></div>
+       <div className="reveal"><ContactForm /></div>
 
-      <footer className='footer'>
+      <footer className='footer reveal'>
         <div className='container'>
-          <div className='content'>  <p>
+          <div className='footer-content'>  <p>
             © 2026 — Conçu et développé par <span className="footer-name">HAMOUCH Aymane</span>
           </p>
           </div>
