@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 
   function App() {
     const [darkMode, setDarkMode] = useState(false);
-
+    const [photoOpen, setPhotoOpen] = useState(false); /* pour l'affichage du photo */
     useEffect(() => {
     if (darkMode) {
       document.body.classList.add('dark');
@@ -70,9 +70,14 @@ import ContactForm from './ContactForm';
 
   return (
     <>
+      {photoOpen && (
+      <div className="lightbox" onClick={() => setPhotoOpen(false)}>
+        <img src="src/assets/img-profil.jpeg" alt="photo de profil" />
+      </div>
+   )}
       <header id="header">
         <div className="left-side">
-          <div className="profile-container" >
+          <div className="profile-container" onClick={() => setPhotoOpen(true)} style={{cursor: 'pointer'}} >
             {/* Assure-toi que le chemin de l'image est correct dans ton projet Vite */}
             <img src="src/assets/img-profil.jpeg" alt="photo de profil" />
           </div>
