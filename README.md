@@ -26,11 +26,12 @@ Un portfolio/CV personnel interactif développé avec **React** et **jQuery**, d
 
 ## 📦 Installation
 
-Dans le terminal on tape :
-_ git clone https://github.com/aymanehamouch05/aymanehamouch05.github.io.git
-_ cd aymanehamouch05.github.io/projet-cv
-_ npm install
-_ npm run dev
+```bash
+git clone https://github.com/aymanehamouch05/aymanehamouch05.github.io.git
+cd aymanehamouch05.github.io/projet-cv
+npm install
+npm run dev
+```
 
 
 ## 🚀 Déploiement
